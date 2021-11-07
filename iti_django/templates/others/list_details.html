@@ -1,0 +1,28 @@
+{% extends 'main/base_layout.html' %}
+
+{% block content %}
+
+<h3>Details Page</h3>
+
+<table class="table">
+    <thead>
+        <tr>
+            <td>ID</td>
+            <td>Movie Name</td>
+            <td>Priority</td>
+            <td>Description</td>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td>{{task_id}}</td>
+            <td>{{task_name}}</td>
+            <td>{{task_priority}}</td>
+            <td>{{task_description}}</td>
+        </tr>
+    </tbody>
+</table>
+
+<a href="{% url 'todo:todo-list' %}">Back to list</a>
+
+{% endblock %}

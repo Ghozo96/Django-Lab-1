@@ -1,0 +1,37 @@
+{% extends 'main/base_layout.html' %}
+
+{% block content %}
+
+<table class="table table-condensed">
+    <thead>
+        <tr>
+            <td>ID</td>
+            <td>Movie Name</td>
+            <td>Priority</td>
+            <td>Description</td>
+            <td>Actions</td>
+        </tr>
+    </thead>
+    <tbody>
+    {% for task in task_list %}
+        <tr>
+            <td>{{task.id}}</td>
+            <td>{{task.name}}</td>
+            <td>{{task.priority}}</td>
+            <td>{{task.description}}</td>
+            <td>
+                <a class="btn btn-primary" href="{% url 'todo:details' task.id %}">View</a>
+                <a class="btn btn-dark" href="{% url 'todo:update' task.id %}">Update</a>
+                <a class="btn btn-danger" href="{% url 'todo:delete' task.id %}">Delete</a>
+
+            </td>
+        </tr>
+    {% empty %}
+        <tr>
+            <td colspan="3" class="text-center"> Sorry, no tasks in this list.</td>
+        </tr>
+    {% endfor %}
+    </tbody>
+</table>
+
+{%endblock%}
